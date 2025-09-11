@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
     const services = [
@@ -14,11 +15,11 @@ export function Footer() {
     ];
 
     const quickLinks = [
-        "About Us",
-        "Services",
-        "Contact",
-        "Privacy Policy",
-        "Terms of Service",
+        { name: "About Us", href: "#about" },
+        { name: "Services", href: "#services" },
+        { name: "Contact", href: "#contact" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
+        { name: "Terms And Condition", href: "/terms-and-condition" },
     ];
 
     return (
@@ -85,14 +86,13 @@ export function Footer() {
                         <h4 className="font-semibold">Quick Links</h4>
                         <ul className="space-y-2">
                             {quickLinks.map((link) => (
-                                <li key={link}>
-                                    <a
-                                        href="#"
-                                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                                    >
-                                        {link}
-                                    </a>
-                                </li>
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex flex-col gap-4"
+                                >
+                                    {link.name}
+                                </Link>
                             ))}
                         </ul>
                     </motion.div>

@@ -4,18 +4,23 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const router = useRouter();
     const navItems = [
-        { name: "Home", href: "#home" },
+        { name: "Home", href: "/" },
         { name: "Services", href: "#services" },
         { name: "About", href: "#about" },
         { name: "Contact", href: "#contact" },
     ];
 
     const scrollToSection = (href: string) => {
+        if (!href.includes("#")) {
+            router.push(href);
+            return;
+        }
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -51,7 +56,7 @@ export function Navigation() {
                             <motion.button
                                 key={item.name}
                                 onClick={() => scrollToSection(item.href)}
-                                className="text-foreground hover:text-primary transition-colors duration-200"
+                                className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

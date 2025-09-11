@@ -62,9 +62,9 @@ export function HeroSection() {
                                     transition={{ duration: 0.8, delay: 0.2 }}
                                     className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight"
                                 >
-                                    Your Trusted{" "}
+                                    Best{" "}
                                     <span className="text-primary relative">
-                                        Accounting Partner
+                                        Chartered Accountant (CA)
                                         <svg
                                             className="absolute -bottom-2 left-0 w-full h-3 text-primary/20"
                                             viewBox="0 0 100 10"
@@ -87,12 +87,13 @@ export function HeroSection() {
                                     transition={{ duration: 0.8, delay: 0.3 }}
                                     className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
                                 >
-                                    Expert chartered accountancy services with
-                                    personalized attention. From GST
-                                    registration to tax consultancy, we help
-                                    individuals and businesses navigate
-                                    financial requirements with accuracy and
-                                    care.
+                                    Expert Chartered Accountant (CA) services in
+                                    Varanasi with personalized attention. From
+                                    GST registration to tax consultancy and
+                                    compliance, we assist individuals and
+                                    businesses in managing financial
+                                    requirements accurately, ensuring reliable
+                                    and professional accounting support.
                                 </motion.p>
                             </div>
 
