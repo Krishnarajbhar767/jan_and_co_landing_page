@@ -4,6 +4,7 @@ import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import Script from "next/script";
 
 const playfair = Playfair_Display({
     subsets: ["latin"],
@@ -35,7 +36,14 @@ export const metadata: Metadata = {
         index: true,
         follow: true,
     },
+    other: {
+        "google-site-verification":
+            "pLJx4TauHFu48zmhH5DbsL3hSeJTrUOb1DCPCZ6lEhM",
+    },
 };
+
+// GA 4 iD
+const GA_MEASUREMENT_ID = "G-1ERK76NN28"; // Replace with your GA4 ID
 
 export default function RootLayout({
     children,
@@ -48,6 +56,19 @@ export default function RootLayout({
             className={`${playfair.variable} ${sourceSans.variable} antialiased`}
         >
             <body className="font-sans">
+                {/* Google Analytics 4 */}
+                <Script
+                    src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                    strategy="afterInteractive"
+                />
+                <Script id="ga4-init" strategy="afterInteractive">
+                    {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+                </Script>
                 <main className="min-h-screen">
                     <Navigation />
                     {children}
